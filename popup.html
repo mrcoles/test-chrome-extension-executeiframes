@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Test</title>
+    <style>
+     body, html { padding: 0; margin: 0; }
+     #msgs {
+       width: 400px;
+       margin: 0;
+       padding: 0;
+       min-height: 300px;
+       white-space: pre-line;
+       word-wrap: break-word;
+     }
+     #msgs li {
+       display: list-item;
+       list-style-position: inside;
+       padding: 1em 2em;
+       margin: 0;
+       border-bottom: 1px solid #ccc;
+     }
+     #msgs li:nth-child(even) {
+       background: #f9f9f9;
+     }
+    </style>
+  </head>
+  <body>
+    <ol id="msgs"></ol>
+    <script type="module" src="lib/pchrome.js"></script>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

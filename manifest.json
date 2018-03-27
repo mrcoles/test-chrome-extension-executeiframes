@@ -1,0 +1,12 @@
+{
+  "name": "test-chrome-executeframes",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description":
+    "Test execute script on multiple pages",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "minimum_chrome_version": "49",
+  "permissions": ["tabs", "http://*/*", "https://*/*", "activeTab", "webNavigation"]
+}
