@@ -1,9 +1,7 @@
-import * as pchrome from "./lib/pchrome.js";
-
 function _log(msg) {
-  var elt = document.createElement("li");
+  var elt = document.createElement('li');
   elt.innerText = msg;
-  document.getElementById("msgs").appendChild(elt);
+  document.getElementById('msgs').appendChild(elt);
 }
 
 let tabId = null;
@@ -12,10 +10,10 @@ pchrome
   .timeout(600)
   .then(() => pchrome.tabs.query({ active: true, currentWindow: true }))
   .then(tabs => (tabId = tabs[0].id))
-  .then(() => _log("### chrome.webNavigation.getAllFrames(...) approach"))
+  .then(() => _log('### chrome.webNavigation.getAllFrames(...) approach'))
   .then(() => pchrome.webNavigation.getAllFrames({ tabId }))
   .then(details => {
-    _log("lookup all frames via webNavigation:");
+    _log('lookup all frames via webNavigation:');
     details.forEach((d, i) => {
       _log(
         `RESP: frame ${d.frameId} (url=${d.url}, parentFrameId=${
@@ -25,11 +23,11 @@ pchrome
     });
     return details;
   })
-  .then(() => _log("### chrome.tabs.executeScript({... allFrames}) approach"))
+  .then(() => _log('### chrome.tabs.executeScript({... allFrames}) approach'))
   .then(() => {
     let extId = chrome.runtime.id;
     let code = `console.log('execute code'); chrome.runtime.sendMessage('${extId}', window.location.href); true;`;
-    _log("try to execute code in all frames:\n ```\n" + code + "\n```");
+    _log('try to execute code in all frames:\n ```\n' + code + '\n```');
     return pchrome.tabs.executeScript(tabId, {
       code: code,
       allFrames: true,
