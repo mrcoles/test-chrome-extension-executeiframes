@@ -8,5 +8,5 @@
     "default_popup": "popup.html"
   },
   "minimum_chrome_version": "49",
-  "permissions": ["tabs", "http://*/*", "https://*/*", "activeTab", "webNavigation"]
+  "permissions": ["activeTab", "webNavigation"]
 }
